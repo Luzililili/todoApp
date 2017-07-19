@@ -78,5 +78,15 @@
                 return ret;
             }
 
+            //--------------07- 显示未完成数--------------
+            this.getCount = function () {
+                var count = 0;
+                for (var i = 0; i < todoList.length; i++) {
+                    if (!todoList[i].isCompleted) {
+                        count++;
+                    }
+                }
+                return count;
+            }
         }])
 })(angular);

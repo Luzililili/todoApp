@@ -48,6 +48,8 @@
         //--------------06-1 清除按钮的显示与隐藏----------
         vm.isShow = TodoSrv.isShow;
 
+        //--------------07- 显示为完成数--------------
+        vm.getCount = TodoSrv.getCount;
 
     }
 })(angular);
