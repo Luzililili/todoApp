@@ -23,5 +23,17 @@
 
             //--------------03- 删除数据-----------------
             vm.del = TodoSrv.del;
+
+            //--------------04- 修改数据------------------
+            vm.editingId = -1;
+            vm.edit = function(id){
+                //当前编辑的时候,让editingId = id ,值变为 true,就添加 editing 类
+                vm.editingId = id;
+            }
+            //保存修改的数据
+            vm.editSave = function(){
+                 vm.editingId = -1;
+                 TodoSrv.save();
+            }
         }
 })(angular);
