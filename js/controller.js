@@ -24,7 +24,7 @@
             //--------------03- 删除数据-----------------
             vm.del = TodoSrv.del;
 
-            //--------------04- 修改数据------------------
+            //--------------04- 编辑数据------------------
             vm.editingId = -1;
             vm.edit = function(id){
                 //当前编辑的时候,让editingId = id ,值变为 true,就添加 editing 类
@@ -35,5 +35,17 @@
                  vm.editingId = -1;
                  TodoSrv.save();
             }
+
+            //--------------05- 切换任务选中状态----------
+            vm.isCheckedAll = false;
+            vm.checkedAll = function(){
+                TodoSrv.checkedAll(vm.isCheckedAll);
+            }
+
+             //--------------05- 清除已完成的项目----------
+
+
+
+             
         }
 })(angular);

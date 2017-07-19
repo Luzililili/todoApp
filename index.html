@@ -20,7 +20,7 @@
         </header>
         <!-- This section should be hidden by default and shown when there are todos -->
         <section class="main">
-            <input class="toggle-all" type="checkbox">
+            <input class="toggle-all" type="checkbox" ng-click="checkedAll()" ng-model="isCheckedAll">
             <label for="toggle-all">Mark all as complete</label>
             <ul class="todo-list">
                 <!-- These are here just to show the structure of the list items -->
@@ -41,14 +41,6 @@
                         <!-- 里面的内容要双向绑定 -->
                         <input class="edit" ng-model="todo.name">
                     </form>
-                </li>
-                <li>
-                    <div class="view">
-                        <input class="toggle" type="checkbox">
-                        <label>Buy a unicorn</label>
-                        <button class="destroy"></button>
-                    </div>
-                    <input class="edit" value="Rule the web">
                 </li>
             </ul>
         </section>
