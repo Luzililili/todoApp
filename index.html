@@ -28,9 +28,11 @@
                 <!-- 循环遍历每个数据,展示在页面中, ng-class 当冒号后面的值为 true 时,就给她添加冒号前面的类 -->
                 <li ng-repeat="todo in todoList track by $index" ng-class="{completed:todo.isCompleted}">
                     <div class="view">
+                        <!-- 单个复选框的选中状态 -->
                         <input class="toggle" type="checkbox" ng-model="todo.isCompleted">
                         <label ng-bind="todo.name"></label>
-                        <button class="destroy"></button>
+                        <!-- 删除按钮注册点击事件 -->
+                        <button class="destroy" ng-click="del(todo.id)"></button>
                     </div>
                     <input class="edit" value="Create a TodoMVC template">
                 </li>
