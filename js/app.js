@@ -1,8 +1,8 @@
-(function (window) {
+(function (angular) {
 	//严格模式
 	'use strict';
 	angular
 	// 引入依赖项
-	.module('todoApp',['todoApp.contor','todoApp.service'])
+	.module('todoApp',['todoApp.controller','todoApp.service'])
     
-})(window);
+})(angular);
