@@ -9,5 +9,16 @@
             var todoList = TodoSrv.getData();
             vm.todoList = todoList;
             
+            //-------------02- 添加数据-----------------
+            //当页面打开时,数据是空的e
+            vm.taskName = '';
+            vm.add = function(){
+                if(vm.taskName.trim() === ''){
+                    return;
+                }
+                TodoSrv.add(vm.taskName);
+                //添加完之后,清空
+                vm.taskName = '';
+            }
         }
 })(angular);

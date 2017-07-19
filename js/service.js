@@ -19,6 +19,16 @@
             return todoList;
         }
        
+       //--------------02- 添加数据-----------------
+       this.add = function(taskName){
+           var id = todoList.length === 0 ? 1 :　todoList[todoList.length - 1].id + 1;
+           //添加到数组中
+           todoList.push({
+               id:id,name:taskName,isCompleted:false
+           })
+           //添加后保存一下数据
+           this.save();
+       }
 
 
     }])
