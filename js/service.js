@@ -52,6 +52,31 @@
             }
 
             //--------------06- 清除已完成的项目----------
+            this.delCompleted = function () {
+                //声明一个临时数组,存放未完成的
+                var tmpArr = [];
+                for (var i = 0; i < todoList.length; i++) {
+                    if (!todoList[i].isCompleted) {
+                        tmpArr.push(todoList[i]);
+                    }
+                }
+                // 清空原来的数组,不会改变指向
+                todoList.length = 0;
+                [].push.apply(todoList, tmpArr);
+
+                that.save();
+            }
+
+            //--------------06-1 清除按钮的显示与隐藏----------
+            this.isShow = function () {
+                var ret = false;
+                for (var i = 0; i < todoList.length; i++) {
+                    if (todoList[i].isCompleted) {
+                        ret = true;
+                    }
+                }
+                return ret;
+            }
 
         }])
 })(angular);
