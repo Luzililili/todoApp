@@ -2,8 +2,8 @@
     'use strict';
     angular
         .module('todoApp.controller', [])
-        .controller('TodoController', ['$scope', 'TodoSrv', TodoController])
-    function TodoController($scope, TodoSrv) {
+        .controller('TodoController', ['$scope', '$location', 'TodoSrv', TodoController])
+    function TodoController($scope, $location, TodoSrv) {
         var vm = $scope;
         //-------------01- 数据展示-----------------
         var todoList = TodoSrv.getData();
@@ -51,5 +51,23 @@
         //--------------07- 显示为完成数--------------
         vm.getCount = TodoSrv.getCount;
 
+        //--------------08- 根据URL变化显示相应任务-------------
+        vm.location = $location;
+        //监视锚点后的哈希值
+        vm.$watch('location.url()', function (newValue, oldValue) {
+            console.log(newValue);
+            //判断一下
+            switch (newValue) {
+                case '/active':
+                    vm.status = false;
+                    break;
+                case '/completed':
+                    vm.status = true;
+                    break;
+                default:
+                    vm.status = undefined;
+                    break;
+            }
+        });
     }
 })(angular);
