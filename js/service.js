@@ -6,7 +6,7 @@
             //--------------00- 存储数据---------------
             //先从localStorage中获取数据
             var localStorage = $window.localStorage;
-            var todoList = JSON.parse(localStorage.getItem('todo'));
+            var todoList = JSON.parse(localStorage.getItem('todo')) || [];
             //存储数据
             this.save = function () {
                 localStorage.setItem('todo', JSON.stringify(todoList));
